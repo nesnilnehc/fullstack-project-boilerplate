@@ -5,7 +5,7 @@
 ```
 .
 ├───docs
-|   └───TODO.md
+│   └───TODO.md
 ├───scripts
 ├───src
 ├───.gitignore
