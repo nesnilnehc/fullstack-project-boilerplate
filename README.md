@@ -8,7 +8,7 @@
 │   └───TODO.md
 ├───scripts
 ├───src
-├───.gitignore
+├───.gitignore            # VisualStudioCode.markdown
 ├───.markdownlint.yaml
 ├───CHANGELOG.md
 ├───LICENSE
