@@ -19,13 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-## [0.0.1] - 2020-04-15
-
-### Added
-
-- The CHANGELOG file
-- The gitignore file
-- The markdownlint configuration file
-- The source directory
-
-[0.0.1]: https://github.com/nehcdahc/project-template/releases/tag/v0.0.1
+[Unreleased]: https://github.com/nehcdahc/project-template/compare/

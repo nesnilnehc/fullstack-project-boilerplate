@@ -1,3 +1,3 @@
 # TODO
 
-- [] Thing to do
+- [] Add a task
