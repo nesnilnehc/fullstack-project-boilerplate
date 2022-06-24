@@ -1,16 +1,6 @@
 # Project Template
 
-English | [简体中文](./README.zh-CN.md)
-
-## Unified Naming Strategy for Files and Directories
-
-
-
 ## Folder structure
-
-- Naming directories should follow these guidelines
-  - 
-- Filename must not contain full-width characters
 
 ```
 .
@@ -18,13 +8,21 @@ English | [简体中文](./README.zh-CN.md)
 ├───docs                   # Documentation files (alternatively `doc`)
 │   ├── usage.md           # Getting started guide
 │   └───todo.md
+├───resources
+│   └───images
 ├───scripts
+├───solutions
 ├───src                    # Source files (alternatively `lib` or `app`)
-│   ├───api-for-web
-│   ├───app-for-android
-│   ├───app-for-linux
-│   ├───app-for-windows
-│   └───web
+│   ├───api
+│   ├───app-android
+│   ├───app-ios
+│   ├───app-linux
+│   ├───app-windows
+│   ├───plugin
+│   ├───web
+│   ├───web-hybrid
+│   ├───webcomponent
+│   └───webcomponent-hybrid
 ├───.gitignore
 ├───.markdownlint.yaml
 ├───CHANGELOG.md
@@ -34,5 +32,5 @@ English | [简体中文](./README.zh-CN.md)
 
 ## Copyright and license
 
-Copyright 2020 Chad Chen.
+Copyright 2022 Chad Chen.
 Licensed under [the MIT License](/LICENSE).
