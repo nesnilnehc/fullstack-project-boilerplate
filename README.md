@@ -12,17 +12,15 @@
 │   └───images
 ├───scripts
 ├───solutions
-├───src                    # Source files (alternatively `lib` or `app`)
-│   ├───api
+├───src                    # Source files
+│   ├───server
 │   ├───app-android
 │   ├───app-ios
-│   ├───app-linux
-│   ├───app-windows
 │   ├───plugin
 │   ├───web
+│   ├───web-components
 │   ├───web-hybrid
-│   ├───webcomponent
-│   └───webcomponent-hybrid
+│   └───web-hybrid-components
 ├───.gitignore
 ├───.markdownlint.yaml
 ├───CHANGELOG.md
