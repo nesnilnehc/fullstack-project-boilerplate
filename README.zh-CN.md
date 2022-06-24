@@ -1,15 +1,9 @@
 # Project Template
 
-English | [简体中文](./README.zh-CN.md)
-
-## Unified Naming Strategy for Files and Directories
-
-
+[English](./README.md) | 简体中文
 
 ## Folder structure
 
-- Naming directories should follow these guidelines
-  - 
 - Filename must not contain full-width characters
 
 ```
