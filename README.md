@@ -23,6 +23,7 @@
 │   └───web-hybrid-components
 ├───.gitignore
 ├───.markdownlint.yaml
+├───.prettierrc.yaml
 ├───CHANGELOG.md
 ├───LICENSE
 └───README.md
