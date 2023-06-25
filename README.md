@@ -4,10 +4,17 @@
 
 ```
 .
-├───build                  # Compiled files (alternatively `dist`)
+├───dist                   # Compiled files (alternatively `build`)
+├───config                 # Project configuration files, such as database configuration, environment variable configuration, etc.
 ├───docs                   # Documentation files (alternatively `doc`)
-│   ├── usage.md           # Getting started guide
-│   └───todo.md
+│   ├───design
+│   ├───development
+│   ├───build
+│   ├───testing
+│   ├───deployment
+│   ├───backup
+│   ├───todo.md
+│   └───usage.md           # Getting started guide
 ├───resources
 │   └───images
 ├───scripts
@@ -21,6 +28,7 @@
 │   ├───web-components
 │   ├───web-hybrid
 │   └───web-hybrid-components
+├───tests
 ├───.gitignore
 ├───.markdownlint.yaml
 ├───.prettierrc.yaml
