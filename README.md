@@ -13,8 +13,8 @@
 │   ├───testing
 │   ├───deployment
 │   ├───backup
-│   ├───todo.md
-│   └───usage.md           # Getting started guide
+│   ├───TODO.md
+│   └───USAGE.md           # Getting started guide
 ├───resources
 │   └───images
 ├───scripts
