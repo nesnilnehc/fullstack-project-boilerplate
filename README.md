@@ -5,7 +5,6 @@
 ```
 .
 ├───dist                   # Compiled files (alternatively `build`)
-├───config                 # Project configuration files, such as database configuration, environment variable configuration, etc.
 ├───docs                   # Documentation files (alternatively `doc`)
 │   ├───design
 │   ├───development
@@ -15,19 +14,17 @@
 │   ├───backup
 │   ├───TODO.md
 │   └───USAGE.md           # Getting started guide
+├───config                 # Project configuration files, such as database configuration, environment variable configuration, etc.
 ├───resources
 │   └───images
 ├───scripts
-├───solutions
 ├───src                    # Source files
-│   ├───server
 │   ├───app-android
 │   ├───app-ios
-│   ├───plugin
+│   ├───server
+│   ├───tools
 │   ├───web
-│   ├───web-components
-│   ├───web-hybrid
-│   └───web-hybrid-components
+│   └───web-hybrid
 ├───tests
 ├───.gitignore
 ├───.markdownlint.yaml
