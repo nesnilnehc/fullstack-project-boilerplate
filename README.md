@@ -27,6 +27,7 @@
 │   └───web-hybrid
 ├───tests
 ├───.gitignore
+├───.gitlab-ci.yml
 ├───.markdownlint.yaml
 ├───.prettierrc.yaml
 ├───CHANGELOG.md

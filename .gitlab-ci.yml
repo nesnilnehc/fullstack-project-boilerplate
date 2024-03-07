@@ -1,0 +1,67 @@
+stages:          # List of stages for jobs and their order of execution
+  - build
+  - test
+  - deploy
+
+.standard-rules:       # Make a hidden job to hold the common rules
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+
+test-job-unit:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - echo "Running unit tests... This will take about 1 seconds."
+    - sleep 1
+    - echo "Code coverage is 90%"
+
+test-job-lint:   # This job runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Linting code... This will take about 1 seconds."
+    - sleep 1
+    - echo "No lint issues found."
+
+test-job-sonarqube-src1:
+  stage: test
+  image: sonarsource/sonar-scanner-cli:4.8.1
+  script:
+    # https://docs.sonarsource.com/sonarqube/9.9/analyzing-source-code/scanners/sonarscanner/
+    # https://hub.docker.com/r/sonarsource/sonar-scanner-cli
+    # 注意：Sonar Scanner CLI 版本要和 SonarQube 版本对应。Sonar Scanner 4.8.x ～ SonarQube 9.9。
+    - sonar-scanner -v
+    - sonar-scanner -Dsonar.host.url=https://xxx.com:9000 -Dsonar.login=******* -Dsonar.projectKey=******** -Dsonar.sources=src
+
+test-job-sonarqube-src2:
+  stage: test
+  script:
+    - echo "This job tests src2"
+    - exit 0
+
+test-job-notify:
+  stage: test
+  image: curlimages/curl:latest
+  cache:
+    key: curl-image
+    paths:
+      - /usr/local/bin/curl
+  script:
+      - curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=********' -H 'Content-Type:application/json' -d "{\"msgtype\":\"text\",\"text\":{\"mentioned_list\":[\"$GITLAB_USER_LOGIN\"],\"content\":\"亲爱的$GITLAB_USER_NAME同学，您提交的合并请求未通过测试，请及时处理！\n项目名称：$CI_PROJECT_NAME\n构建分支：$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME\n提交日志：$CI_COMMIT_MESSAGE\nPipeline 地址：$CI_PIPELINE_URL\"}}"
+  when: on_failure
+  needs:
+    - job: test-job-sonarqube-src1
+      optional: true
+    - job: test-job-sonarqube-src2
+      optional: true
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
