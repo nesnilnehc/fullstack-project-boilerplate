@@ -33,7 +33,7 @@ test-job-sonarqube-src1:
   script:
     # https://docs.sonarsource.com/sonarqube/9.9/analyzing-source-code/scanners/sonarscanner/
     # https://hub.docker.com/r/sonarsource/sonar-scanner-cli
-    # 注意：Sonar Scanner CLI 版本要和 SonarQube 版本对应。Sonar Scanner 4.8.x ～ SonarQube 9.9。
+    # Please note that the Sonar Scanner CLI version should correspond to the SonarQube version. For example, Sonar Scanner 4.8.x ~ SonarQube 9.9.
     - sonar-scanner -v
     - sonar-scanner -Dsonar.host.url=https://xxx.com:9000 -Dsonar.login=******* -Dsonar.projectKey=******** -Dsonar.sources=src
 
