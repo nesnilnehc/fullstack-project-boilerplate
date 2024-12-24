@@ -27,42 +27,53 @@ cd project-template
 
 ```
 .
-├───dist                  # Compiled files (alternatively `build`)
-├───docs                  # Documentation files (alternatively `doc`)
-│   ├───api               # API documentation
-│   ├───guides            # Various guides
-│   │   ├───dev           # Developer guides
-│   │   ├───ops           # Operations guides
-│   │   └───user          # End-user guides
-│   ├───architecture      # System architecture
-│   │   ├───design        # Design documents
-│   │   └───diagrams      # Architecture diagrams
-│   ├───contributing      # Contribution guidelines
-│   └───release           # Release notes and versioning
-├───config                # Project configuration files, such as database configuration, environment variable configuration, etc.
-│   ├───dev               # Development environment
-│   ├───prod              # Production environment
-│   └───test              # Testing environment
-├───resources             # Project resources
-│   ├───images            # Image assets
-│   ├───fonts             # Font files
-│   ├───icons             # Icon assets
-│   └───templates         # Template files
-├───scripts               # Scripts
-├───src                   # Source files
-│   ├───app-android       # Android app source files
-│   ├───app-ios           # iOS app source files
-│   ├───server            # Server source files
-│   ├───tools             # Tools source files
-│   ├───web               # Web source files
-│   └───web-hybrid        # Web hybrid source files
-├───.gitignore            # Git ignore file    
-├───.gitlab-ci.yml        # GitLab CI configuration file
-├───.markdownlint.yaml    # Markdownlint configuration file
-├───.prettierrc.yaml      # Prettier configuration file
-├───CHANGELOG.md          # Change log
-├───LICENSE               # License
-└───README.md             # Project description
+├───dist                                # Compiled files (alternatively `build`)
+├───docs                                # Documentation files (alternatively `doc`)
+│   ├───api                             # API documentation
+│   ├───guides                          # Various guides
+│   │   ├───dev                         # Developer guides
+│   │   ├───ops                         # Operations guides
+│   │   └───user                        # End-user guides
+│   ├───architecture                    # System architecture
+│   │   ├───design                      # Design documents
+│   │   └───diagrams                    # Architecture diagrams
+│   ├───contributing                    # Contribution guidelines
+│   └───release                         # Release notes and versioning
+├───config                              # Project configuration files, such as database configuration, environment variable configuration, etc.
+│   ├───dev                             # Development environment
+│   ├───prod                            # Production environment
+│   └───test                            # Testing environment
+├───docker                              # Docker configuration files
+│   ├───compose                         # Docker compose files for different environments
+│   │   ├───dev                         # Development environment compose files
+│   │   └───prod                        # Production environment compose files
+│   ├───config                          # Docker configurations (nginx, redis etc.)
+│   │   ├───nginx                       # Nginx configuration
+│   │   └───redis                       # Redis configuration
+│   └───services                        # Dockerfile for different services
+│       ├───backend                     # Backend service
+│       ├───frontend                    # Frontend service
+│       └───worker                      # Worker service
+├───resources                           # Project resources
+│   ├───images                          # Image assets
+│   ├───fonts                           # Font files
+│   ├───icons                           # Icon assets
+│   └───templates                       # Template files
+├───scripts                             # Scripts
+├───src                                 # Source files
+│   ├───app-android                     # Android app source files
+│   ├───app-ios                         # iOS app source files
+│   ├───server                          # Server source files
+│   ├───tools                           # Tools source files
+│   ├───web                             # Web source files
+│   └───web-hybrid                      # Web hybrid source files
+├───.gitignore                          # Git ignore file    
+├───.gitlab-ci.yml                      # GitLab CI configuration file
+├───.markdownlint.yaml                  # Markdownlint configuration file
+├───.prettierrc.yaml                    # Prettier configuration file
+├───CHANGELOG.md                        # Change log
+├───LICENSE                             # License
+└───README.md                           # Project description
 ```
 
 ## Directory Structure Maintenance
