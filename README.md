@@ -1,6 +1,6 @@
-# Project Template
+# FULLSTACK PROJECT BOILERPLATE
 
-A standardized project directory structure template to help quickly set up a well-organized project framework.
+A modern, enterprise-grade fullstack boilerplate providing standardized project structure and best practices for rapid development.
 
 ## Features
 
