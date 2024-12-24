@@ -65,6 +65,14 @@ cd project-template
 └───README.md             # Project description
 ```
 
+## Directory Structure Maintenance
+
+If you make changes to the project's directory structure, please run the `scripts/create_structure.sh` script to ensure consistency.
+
+```bash
+bash scripts/create_structure.sh
+```
+
 ## Copyright and license
 
 Copyright © 2022-2024 NESNILNEHC
