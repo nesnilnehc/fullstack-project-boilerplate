@@ -8,6 +8,23 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+# Save current directory
+ORIGINAL_DIR=$(pwd)
+
+# Ensure we can access the current directory
+if ! pwd > /dev/null; then
+    echo -e "${RED}Error: Cannot access current directory${NC}"
+    echo "Please ensure you have proper permissions and the directory exists"
+    exit 1
+fi
+
+# Get the script's directory and change to project root
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$(dirname "$SCRIPT_DIR")" || {
+    echo -e "${RED}Error: Cannot change to project root directory${NC}"
+    exit 1
+}
+
 # Ensure we're in the project root directory (where README.md should be)
 if [ ! -f "scripts/create_structure.sh" ]; then
     echo -e "${RED}Error: This script must be run from the project root directory${NC}"
@@ -123,6 +140,14 @@ done <<< "$readme_structure"
 # Get unique directories
 sorted_unique_dirs=$(echo "$keep_dirs" | tr ' ' '\n' | sort -u)
 
+# Create all directories first
+echo -e "\n${GREEN}Creating all required directories...${NC}"
+echo "$sorted_unique_dirs" | while read -r dir; do
+    [ -z "$dir" ] && continue
+    echo "  Creating: $dir/"
+    mkdir -p "$dir"
+done
+
 # Remove unwanted directories
 echo -e "\n${GREEN}Removing directories not defined in README.md:${NC}"
 
@@ -130,6 +155,9 @@ echo -e "\n${GREEN}Removing directories not defined in README.md:${NC}"
 for dir in * .*; do
     # Skip if not a directory or if it's . or ..
     [ ! -d "$dir" ] || [ "$dir" = "." ] || [ "$dir" = ".." ] && continue
+    
+    # Never touch .git directory
+    [ "$dir" = ".git" ] && continue
     
     # Remove trailing slash and clean directory name (remove comments)
     dir=${dir%/}
@@ -139,7 +167,7 @@ for dir in * .*; do
     echo "Processing: $dir (cleaned: $clean_dir)"
     
     # First check if it's protected
-    if echo "$protected_dirs" | grep -q -w "$clean_dir"; then
+    if echo "$protected_dirs" | tr ' ' '\n' | grep -q "^$clean_dir$"; then
         echo "  Protected directory, skipping: $dir/"
         continue
     fi
@@ -151,6 +179,28 @@ for dir in * .*; do
     fi
     
     # Not protected and not in keep list - remove it
+    echo "  Removing: $dir/"
+    rm -rf "$dir"
+done
+
+# Also check subdirectories
+find . -mindepth 2 -type d | while read -r dir; do
+    # Never touch .git directory or its contents
+    [[ "$dir" == "./.git" || "$dir" == "./.git/"* ]] && continue
+    
+    # Remove leading ./
+    dir=${dir#./}
+    clean_dir=$(echo "$dir" | sed -E 's/#.*$//' | sed -E 's/[[:space:]]*$//')
+    
+    echo "Processing subdirectory: $dir (cleaned: $clean_dir)"
+    
+    # Check if directory is in our keep list
+    if echo "$sorted_unique_dirs" | grep -q "^$clean_dir$"; then
+        echo "  Found in README.md, keeping: $dir/"
+        continue
+    fi
+    
+    # Not in keep list - remove it
     echo "  Removing: $dir/"
     rm -rf "$dir"
 done
@@ -184,3 +234,8 @@ while read -r dir; do
 done < <(echo "$sorted_unique_dirs")
 
 echo -e "\n${GREEN}Directory structure synchronization completed successfully${NC}"
+
+# Return to original directory
+cd "$ORIGINAL_DIR" || {
+    echo -e "${RED}Warning: Could not return to original directory${NC}"
+}
