@@ -14,8 +14,8 @@ A modern, enterprise-grade fullstack boilerplate providing standardized project 
 1. Clone the template
 
 ```bash
-git clone https://github.com/NESNILNEHC/project-template.git
-cd project-template
+git clone https://github.com/nesnilnehc/fullstack-project-boilerplate.git
+cd fullstack-project-boilerplate
 ```
 
 1. Customize the structure

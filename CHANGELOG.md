@@ -19,4 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-[Unreleased]: https://github.com/nehcdahc/project-template/compare/
+[Unreleased]: https://github.com/nehcdahc/fullstack-project-boilerplate/compare/
