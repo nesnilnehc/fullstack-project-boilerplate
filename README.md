@@ -11,6 +11,20 @@ A modern, enterprise-grade fullstack boilerplate providing standardized project 
 
 ## Quick Start
 
+There are several ways to use this boilerplate:
+
+### Option 1: Download ZIP
+
+1. Download the ZIP file of this repository
+2. Extract it into your existing project directory
+3. Customize the structure and content according to your needs:
+   - Update project name and description in README.md
+   - Modify package.json with your project details
+   - Adjust the folder structure as needed
+   - Remove unnecessary directories and files
+
+### Option 2: Clone and Push to Your Repository
+
 1. Clone the template
 
 ```bash
@@ -18,10 +32,40 @@ git clone https://github.com/nesnilnehc/fullstack-project-boilerplate.git
 cd fullstack-project-boilerplate
 ```
 
-1. Customize the structure
-   - Adjust directories based on project needs
+1. Remove the existing Git history
+
+```bash
+rm -rf .git
+```
+
+1. Initialize a new Git repository
+
+```bash
+git init
+```
+
+1. Customize the project:
+   - Update project name and description in README.md
+   - Modify package.json with your project details
+   - Update LICENSE file with your information
    - Configure environment-specific settings
    - Update project documentation
+
+1. Push to your repository
+
+```bash
+git remote add origin your-repository-url
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+### Option 3: Use as a Template
+
+1. Click the "Use this template" button on GitHub
+2. Create a new repository using this template
+3. Clone your new repository
+4. Customize as needed following the steps above
 
 ## Folder structure
 
