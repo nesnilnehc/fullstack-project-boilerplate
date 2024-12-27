@@ -71,6 +71,20 @@ readme_structure=$(sed -n "$start_line,$end_line p" README.md | grep -v '^[[:spa
 protected_dirs=".git scripts node_modules dist build"
 existing_files="LICENSE README.md CHANGELOG.md .markdownlint.yaml .gitlab-ci.yml .gitignore .prettierrc.yaml"
 
+# Function to check if a path is a file based on its extension
+is_file() {
+    local path="$1"
+    # List of file extensions to check
+    local file_extensions=(".md" ".yaml" ".yml" ".json" ".js" ".ts" ".css" ".html" ".sh" ".txt")
+    
+    for ext in "${file_extensions[@]}"; do
+        if [[ "$path" == *"$ext" ]]; then
+            return 0  # It's a file
+        fi
+    done
+    return 1  # It's not a file
+}
+
 echo -e "\n${GREEN}Analyzing directory structure...${NC}"
 echo -e "Protected directories:"
 echo "$protected_dirs" | tr ' ' '\n' | sed 's/^/  /'
@@ -87,19 +101,25 @@ last_path=""
 while IFS= read -r line; do
     [ -z "$line" ] && continue
     
+    echo -e "\n${GREEN}Debug: Processing line${NC}"
+    echo "Raw line: $line"
+    
     # Calculate indent level
     indent_count=$(echo "$line" | sed 's/│/ /g' | awk '{ match($0, /^[[:space:]]+/); print RLENGTH }')
     [ $indent_count -lt 0 ] && indent_count=0
     current_level=$((indent_count / 4))
+    echo "Indent count: $indent_count"
+    echo "Current level: $current_level"
     
     # Extract directory name
     name=$(echo "$line" | \
            sed -E 's/^[[:space:]]*│[[:space:]]*//' | \
            sed -E 's/^[[:space:]]*[├└]───[[:space:]]*//' | \
-           sed -E 's/│[[:space:]]*[├└]───[[:space:]]*//' | \
+           sed -E 's/│[[:space:]]*[├└]───//' | \
            sed -E 's/#.*$//' | \
            sed -E 's/^[[:space:]]*//;s/[[:space:]]*$//' | \
            tr -d '│')
+    echo "Extracted name: $name"
     
     # Skip empty names and special cases
     [ -z "$name" ] && continue
@@ -115,19 +135,34 @@ while IFS= read -r line; do
     # Skip protected directories
     echo "$protected_dirs" | grep -q -w "$name" && continue
     
+    # Skip if it's a file (based on extension)
+    if is_file "$name"; then
+        echo "  Debug: Checking if '$name' is a file"
+        echo "  Skipping: $name (it's a file)"
+        continue
+    fi
+    
     if [ $current_level -eq 0 ]; then
         current_path="$name"
         path_stack="$name"
     else
         if [ $current_level -gt $last_level ]; then
             # Going deeper - append to last path
-            current_path="$last_path/$name"
+            current_path="${last_path}/${name}"
         else
             # Same level or going back - use parent path
             parent_path=$(echo "$last_path" | cut -d'/' -f1-$current_level)
-            current_path="$parent_path/$name"
+            current_path="${parent_path}/${name}"
         fi
     fi
+    
+    echo "Last level: $last_level"
+    echo "Last path: $last_path"
+    echo "Current path: $current_path"
+    echo "Path stack: $path_stack"
+    
+    # Clean up the path
+    current_path=$(echo "$current_path" | sed -E 's#/+#/#g' | sed -E 's/[[:space:]]+//g')
     
     echo "  Creating: $current_path/"
     mkdir -p "$current_path"

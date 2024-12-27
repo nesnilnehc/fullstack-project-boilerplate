@@ -71,53 +71,112 @@ git push -u origin main
 
 ```
 .
-├───dist                                # Compiled files (alternatively `build`)
-├───docs                                # Documentation files (alternatively `doc`)
-│   ├───api                             # API documentation
-│   ├───guides                          # Various guides
-│   │   ├───dev                         # Developer guides
-│   │   ├───ops                         # Operations guides
-│   │   └───user                        # End-user guides
-│   ├───architecture                    # System architecture
-│   │   ├───design                      # Design documents
-│   │   └───diagrams                    # Architecture diagrams
-│   ├───contributing                    # Contribution guidelines
-│   └───release                         # Release notes and versioning
-├───config                              # Project configuration files, such as database configuration, environment variable configuration, etc.
-│   ├───dev                             # Development environment
-│   ├───prod                            # Production environment
-│   └───test                            # Testing environment
-├───docker                              # Docker configuration files
-│   ├───compose                         # Docker compose files for different environments
-│   │   ├───dev                         # Development environment compose files
-│   │   └───prod                        # Production environment compose files
-│   ├───config                          # Docker configurations (nginx, redis etc.)
-│   │   ├───nginx                       # Nginx configuration
-│   │   └───redis                       # Redis configuration
-│   └───services                        # Dockerfile for different services
-│       ├───backend                     # Backend service
-│       ├───frontend                    # Frontend service
-│       └───worker                      # Worker service
-├───resources                           # Project resources
-│   ├───images                          # Image assets
-│   ├───fonts                           # Font files
-│   ├───icons                           # Icon assets
-│   └───templates                       # Template files
-├───scripts                             # Scripts
-├───src                                 # Source files
-│   ├───app-android                     # Android app source files
-│   ├───app-ios                         # iOS app source files
-│   ├───server                          # Server source files
-│   ├───tools                           # Tools source files
-│   ├───web                             # Web source files
-│   └───web-hybrid                      # Web hybrid source files
-├───.gitignore                          # Git ignore file    
-├───.gitlab-ci.yml                      # GitLab CI configuration file
-├───.markdownlint.yaml                  # Markdownlint configuration file
-├───.prettierrc.yaml                    # Prettier configuration file
-├───CHANGELOG.md                        # Change log
-├───LICENSE                             # License
-└───README.md                           # Project description
+├───dist                                                          # Compiled files
+├───docs                                                          # Documentation files
+│   ├───architecture                                              # System architecture
+│   │   ├───overview                   
+│   │   │   ├───introduction          
+│   │   │   │   ├───system-overview.md                            # System overview and goals
+│   │   │   │   └───business-goals.md                             # Business requirements
+│   │   │   ├───tech-stack           
+│   │   │   │   ├───frontend-stack.md                             # Frontend technology choices
+│   │   │   │   ├───backend-stack.md                              # Backend technology choices
+│   │   │   │   └───infrastructure-stack.md                       # Infrastructure technology
+│   │   │   └───principles           
+│   │   │       ├───design-principles.md                          # Core design principles
+│   │   │       └───coding-principles.md                          # Coding standards
+│   │   ├───database                   
+│   │   │   ├───models               
+│   │   │   │   ├───customer-model.md                             # Customer entity design
+│   │   │   │   ├───contact-model.md                              # Contact entity design
+│   │   │   │   ├───opportunity-model.md                          # Opportunity entity design
+│   │   │   │   └───activity-model.md                             # Activity tracking model
+│   │   │   ├───schemas              
+│   │   │   │   ├───schema-overview.md                            # Database schema overview
+│   │   │   │   └───schema-migrations.md                          # Schema migration strategy
+│   │   │   └───sharding            
+│   │   │       ├───sharding-strategy.md                          # Data sharding approach
+│   │   │       └───data-distribution.md                          # Data distribution rules
+│   │   ├───features                  
+│   │   │   ├───auth                
+│   │   │   │   ├───authentication  
+│   │   │   │   │   ├───jwt-auth.md                               # JWT authentication design
+│   │   │   │   │   └───sso-integration.md                        # SSO integration design
+│   │   │   │   └───authorization   
+│   │   │   │       ├───rbac-design.md                            # Role-based access control
+│   │   │   │       └───permission-matrix.md                      # Permission definitions
+│   │   │   ├───i18n                
+│   │   │   │   ├───translation-strategy.md                       # Translation management
+│   │   │   │   └───language-detection.md                         # Language detection logic
+│   │   │   ├───storage             
+│   │   │   │   ├───file-storage.md                               # File storage design
+│   │   │   │   └───cdn-integration.md                            # CDN configuration
+│   │   │   └───search              
+│   │   │       ├───search-engine.md                              # Search engine design
+│   │   │       └───indexing-strategy.md                          # Search indexing strategy
+│   │   ├───security                  
+│   │   │   ├───encryption         
+│   │   │   │   ├───data-encryption.md                            # Data encryption methods
+│   │   │   │   └───key-management.md                             # Encryption key management
+│   │   │   └───protocols          
+│   │   │       ├───security-protocols.md                         # Security protocols
+│   │   │       └───compliance.md                                 # Security compliance
+│   │   ├───infrastructure           
+│   │   │   ├───network            
+│   │   │   │   ├───network-topology.md                           # Network architecture
+│   │   │   │   └───load-balancing.md                             # Load balancing strategy
+│   │   │   └───cloud              
+│   │   │       ├───cloud-services.md                             # Cloud service usage
+│   │   │       └───scaling-strategy.md                           # Scaling approach
+│   │   ├───diagrams                 
+│   │   │   ├───system             
+│   │   │   │   ├───system-architecture.md                        # System architecture diagrams
+│   │   │   │   └───component-diagram.md                          # Component relationships
+│   │   │   └───sequence           
+│   │   │       ├───auth-flow.md                                  # Authentication flow
+│   │   │       └───order-process.md                              # Order processing flow
+│   │   └───decisions               
+│   │       ├───records            
+│   │       │   ├───adr-001-auth-strategy.md                      # Authentication strategy decision
+│   │       │   └───adr-002-database-choice.md                    # Database selection decision
+│   │       └───proposals          
+│   │           ├───microservices-proposal.md                     # Microservices architecture
+│   │           └───caching-strategy-proposal.md                  # Caching strategy
+├───config                                                        # Project configuration files
+│   ├───dev                                                       # Development environment
+│   ├───prod                                                      # Production environment
+│   └───test                                                      # Testing environment
+├───docker                                                        # Docker configuration files
+│   ├───compose                                                   # Docker compose files
+│   │   ├───dev                                                   # Development compose files
+│   │   └───prod                                                  # Production compose files
+│   ├───config                                                    # Docker configurations
+│   │   ├───nginx                                                 # Nginx configuration
+│   │   └───redis                                                 # Redis configuration
+│   └───services                                                  # Dockerfile for services
+│       ├───backend                                               # Backend service
+│       ├───frontend                                              # Frontend service
+│       └───worker                                                # Worker service
+├───resources                                                     # Project resources
+│   ├───images                                                    # Image assets
+│   ├───fonts                                                     # Font files
+│   ├───icons                                                     # Icon assets
+│   └───templates                                                 # Template files
+├───scripts                                                       # Scripts
+├───src                                                           # Source files
+│   ├───app-android                                               # Android app source files
+│   ├───app-ios                                                   # iOS app source files
+│   ├───server                                                    # Server source files
+│   ├───tools                                                     # Tools source files
+│   ├───web                                                       # Web source files
+│   └───web-hybrid                                                # Web hybrid source files
+├───.gitignore                                                    # Git ignore file    
+├───.gitlab-ci.yml                                                # GitLab CI configuration file
+├───.markdownlint.yaml                                            # Markdownlint configuration file
+├───.prettierrc.yaml                                              # Prettier configuration file
+├───CHANGELOG.md                                                  # Change log
+├───LICENSE                                                       # License
+└───README.md                                                     # Project description
 ```
 
 ## Directory Structure Maintenance
