@@ -73,6 +73,21 @@ git push -u origin main
 .
 ├───dist                                                          # Compiled files
 ├───docs                                                          # Documentation files
+│   ├───index.md                                                  # Documentation index
+│   ├───guides                                                    # Development guides
+│   │   ├───setup                                                 # Setup guides
+│   │   │   ├───index.md                                          # Setup guide index
+│   │   │   ├───environment                                       # Environment setup
+│   │   │   │   ├───windows.md                                    # Windows setup guide
+│   │   │   │   ├───macos.md                                      # macOS setup guide
+│   │   │   │   └───linux.md                                      # Linux setup guide
+│   │   │   ├───dependencies                                      # Dependencies setup
+│   │   │   │   ├───node.md                                       # Node.js setup
+│   │   │   │   ├───docker.md                                     # Docker setup
+│   │   │   │   └───database.md                                   # Database setup
+│   │   │   └───ide                                               # IDE configuration
+│   │   │       ├───vscode.md                                     # VS Code setup
+│   │   │       └───intellij.md                                   # IntelliJ setup
 │   ├───architecture                                              # System architecture
 │   │   ├───overview                   
 │   │   │   ├───introduction          
