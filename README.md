@@ -159,11 +159,8 @@ git push -u origin main
 │   │       └───proposals          
 │   │           ├───microservices-proposal.md                     # Microservices architecture
 │   │           └───caching-strategy-proposal.md                  # Caching strategy
-│   ├───tasks                                                     # Task main directory
-│   │   ├───high-priority                                         # High priority tasks (classified by urgency)
-│   │   ├───features                                              # Feature development tasks (classified by module)
-│   │   ├───bugs                                                  # Bug fix tasks
-│   │   └───archive                                               # Archived tasks (stored by quarter)├───config                                                        # Project configuration files
+│   └───todo.md                                                   # TODO list
+├───config                                                        # Project configuration files
 │   ├───dev                                                       # Development environment
 │   ├───prod                                                      # Production environment
 │   └───test                                                      # Testing environment
