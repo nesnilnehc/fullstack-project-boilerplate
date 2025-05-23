@@ -74,6 +74,8 @@ git push -u origin main
 ├───dist                                                          # Compiled files
 ├───docs                                                          # Documentation files
 │   ├───index.md                                                  # Documentation index
+|   |───getting-started                                           # Getting started guide
+│   │   └───setup                                                 # Setup guides
 │   ├───guides                                                    # Development guides
 │   │   ├───setup                                                 # Setup guides
 │   │   │   ├───index.md                                          # Setup guide index
