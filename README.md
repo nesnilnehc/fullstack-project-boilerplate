@@ -188,6 +188,74 @@ git push -u origin main
 │   ├───tools                                                     # Tools source files
 │   ├───web                                                       # Web source files
 │   └───web-hybrid                                                # Web hybrid source files
+├───tests                                                         # Test files
+│   ├───unit                                                      # Unit tests
+│   │   ├───app-android                                           # Android app unit tests
+│   │   ├───app-ios                                               # iOS app unit tests
+│   │   ├───server                                                # Server unit tests
+│   │   │   ├───controllers                                       # Controller unit tests
+│   │   │   ├───models                                            # Model unit tests
+│   │   │   ├───services                                          # Service unit tests
+│   │   │   └───utils                                             # Utility unit tests
+│   │   ├───tools                                                 # Tools unit tests
+│   │   ├───web                                                   # Web unit tests
+│   │   │   ├───components                                        # Component unit tests
+│   │   │   ├───hooks                                             # Hook unit tests
+│   │   │   ├───services                                          # Service unit tests
+│   │   │   └───utils                                             # Utility unit tests
+│   │   └───web-hybrid                                            # Web hybrid unit tests
+│   ├───integration                                               # Integration tests
+│   │   ├───api                                                   # API integration tests
+│   │   │   ├───auth                                              # Authentication API tests
+│   │   │   ├───user                                              # User API tests
+│   │   │   └───data                                              # Data API tests
+│   │   ├───database                                              # Database integration tests
+│   │   │   ├───migrations                                        # Migration tests
+│   │   │   ├───models                                            # Model integration tests
+│   │   │   └───queries                                           # Query tests
+│   │   ├───services                                              # Service integration tests
+│   │   │   ├───external-apis                                     # External API integration tests
+│   │   │   ├───messaging                                         # Messaging service tests
+│   │   │   └───storage                                           # Storage service tests
+│   │   └───workflows                                             # Workflow integration tests
+│   ├───e2e                                                       # End-to-end tests
+│   │   ├───web                                                   # Web E2E tests
+│   │   │   ├───auth                                              # Authentication flow tests
+│   │   │   ├───user-journey                                      # User journey tests
+│   │   │   ├───admin                                             # Admin panel tests
+│   │   │   └───mobile-responsive                                 # Mobile responsive tests
+│   │   ├───app-android                                           # Android E2E tests
+│   │   │   ├───login                                             # Login flow tests
+│   │   │   ├───navigation                                        # Navigation tests
+│   │   │   └───features                                          # Feature tests
+│   │   ├───app-ios                                               # iOS E2E tests
+│   │   │   ├───login                                             # Login flow tests
+│   │   │   ├───navigation                                        # Navigation tests
+│   │   │   └───features                                          # Feature tests
+│   │   └───cross-platform                                        # Cross-platform E2E tests
+│   │       ├───data-sync                                         # Data synchronization tests
+│   │       └───feature-parity                                    # Feature parity tests
+│   ├───performance                                               # Performance tests
+│   │   ├───load                                                  # Load testing
+│   │   ├───stress                                                # Stress testing
+│   │   └───benchmark                                             # Benchmark tests
+│   ├───security                                                  # Security tests
+│   │   ├───auth                                                  # Authentication security tests
+│   │   ├───api                                                   # API security tests
+│   │   └───data                                                  # Data security tests
+│   ├───fixtures                                                  # Test fixtures and data
+│   │   ├───data                                                  # Test data files
+│   │   ├───mocks                                                 # Mock objects
+│   │   └───stubs                                                 # Stub implementations
+│   ├───helpers                                                   # Test helper functions
+│   │   ├───setup                                                 # Test setup utilities
+│   │   ├───assertions                                            # Custom assertions
+│   │   └───utilities                                             # Test utilities
+│   └───config                                                    # Test configuration
+│       ├───jest.config.js                                        # Jest configuration
+│       ├───cypress.config.js                                     # Cypress configuration
+│       ├───playwright.config.js                                  # Playwright configuration
+│       └───test-env                                               # Test environment configs
 ├───.gitignore                                                    # Git ignore file    
 ├───.gitlab-ci.yml                                                # GitLab CI configuration file
 ├───.markdownlint.yaml                                            # Markdownlint configuration file
