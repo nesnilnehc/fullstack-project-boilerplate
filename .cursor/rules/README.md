@@ -181,3 +181,7 @@ A: 可以。使用 `/Generate Cursor Rules` 命令从聊天生成项目规则。
 
 **Q: 规则是否影响 Cursor Tab 或其他 AI 功能？**
 A: 不会。规则仅提供给 Agent 和 Cmd-K AI 模型使用。
+
+## 参考
+
+- [Cursor 规则官方文档](https://docs.cursor.com/context/rules#user-rules)
