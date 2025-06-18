@@ -1,11 +1,11 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # 中文文案排版规则
 
-⚠️ 所有代码注释和文档必须遵循以下规则。规则适用于所有文件类型（包括 SQL、Python、配置文件等）。
+所有代码注释和文档必须遵循以下规则。规则适用于所有文件类型（包括 SQL、Python、配置文件等）。
 
 ## 空格使用规则
 

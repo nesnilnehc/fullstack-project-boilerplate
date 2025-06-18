@@ -1,11 +1,11 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # 列表前后必须有空行 (MD032)
 
-根据Markdown最佳实践，所有列表（有序和无序）前后都应该有空行。本规则基于[markdownlint的MD032规则](mdc:https:/github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md032.md)。
+根据 Markdown 最佳实践，所有列表（有序和无序）前后都应该有空行。本规则基于 [markdownlint 的 MD032 规则](mdc:https:/github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md032.md)。
 
 ## 规则说明
 
@@ -48,20 +48,20 @@ alwaysApply: false
 
 ```markdown
 1. 列表项
-   更多项目1内容
+   更多项目 1 内容
 2. 列表项
-更多项目2内容
+更多项目 2 内容
 ```
 
-虽然"更多项目2内容"没有缩进，但它被称为"懒续行"，被视为第二个列表项的一部分。
+虽然"更多项目 2 内容"没有缩进，但它被称为"懒续行"，被视为第二个列表项的一部分。
 
 ## 原因
 
-除了美观原因外，某些解析器（包括kramdown）如果列表前后没有空行，将无法正确解析列表。这可能导致渲染错误和内容显示问题。
+除了美观原因外，某些解析器（包括 kramdown）如果列表前后没有空行，将无法正确解析列表。这可能导致渲染错误和内容显示问题。
 
 ## 配置参数
 
-在项目中使用markdownlint工具时，此规则没有可配置的参数。
+在项目中使用 markdownlint 工具时，此规则没有可配置的参数。
 
 ## 例外情况
 

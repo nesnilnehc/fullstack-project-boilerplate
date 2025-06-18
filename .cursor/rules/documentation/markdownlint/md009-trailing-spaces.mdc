@@ -1,15 +1,15 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
-# Markdown尾随空格规则 (MD009)
+# Markdown 尾随空格规则 (MD009)
 
-根据Markdown最佳实践，行末不应存在多余的空格，除非它们有特定用途。本规则基于[markdownlint的MD009规则](mdc:https:/github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md009.md)。
+根据 Markdown 最佳实践，行末不应存在多余的空格，除非它们有特定用途。本规则基于 [markdownlint 的 MD009 规则](mdc:https:/github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md009.md)。
 
 ## 规则说明
 
-当Markdown文件中出现不必要的尾随空格时，会触发此规则违规：
+当 Markdown 文件中出现不必要的尾随空格时，会触发此规则违规：
 
 ```markdown
 这行文本有尾随空格  
@@ -31,7 +31,7 @@ alwaysApply: false
 
 ```markdown
 这行末尾有两个空格表示强制换行  
-这会在渲染时创建一个<br>元素
+这会在渲染时创建一个 <br> 元素
 ```
 
 ## 注意事项
@@ -39,7 +39,7 @@ alwaysApply: false
 以下情况不被视为违规：
 
 1. 缩进和围栏代码块中的尾随空格是允许的，因为某些编程语言可能需要它们
-2. 当配置为允许时，用于强制换行的特定数量的空格（默认为2个）
+2. 当配置为允许时，用于强制换行的特定数量的空格（默认为 2 个）
 
 ## 原因
 
@@ -47,8 +47,8 @@ alwaysApply: false
 
 ## 配置参数
 
-在项目中使用markdownlint工具时，可以配置以下参数：
+在项目中使用 markdownlint 工具时，可以配置以下参数：
 
-- `br_spaces`: 表示换行的空格数（默认为2）
-- `list_item_empty_lines`: 是否允许列表项中空行的空格（默认为false）
-- `strict`: 是否检查不必要的换行（默认为false）
+- `br_spaces`: 表示换行的空格数（默认为 2）
+- `list_item_empty_lines`: 是否允许列表项中空行的空格（默认为 false）
+- `strict`: 是否检查不必要的换行（默认为 false）
